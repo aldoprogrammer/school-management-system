@@ -151,7 +151,7 @@
 
                @elseif(Auth::user()->user_type == 2)
                <li class="nav-item {{ Request::is('/teacher/dashboard') ? 'menu-open' : '' }}">
-                <a href="{{ url('teacher/dashboard')}}" class="nav-link {{ Request::is('admin/dashboard') ? 'active' : '' }}">
+                <a href="{{ url('teacher/dashboard')}}" class="nav-link {{ Request::is('teacher/dashboard') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                         Dashboard
@@ -161,8 +161,8 @@
 
 
                @elseif(Auth::user()->user_type == 3)
-                <li class="nav-item {{ Request::is('/student/dashboard') ? 'menu-open' : '' }}">
-                    <a href="{{ url('student/dashboard')}}" class="nav-link {{ Request::is('admin/dashboard') ? 'active' : '' }}">
+                <li class="nav-item {{ Request::is('student/dashboard') ? 'menu-open' : '' }}">
+                    <a href="{{ url('student/dashboard')}}" class="nav-link {{ Request::is('student/dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -171,7 +171,7 @@
                 </li>
                @elseif(Auth::user()->user_type == 4)
                 <li class="nav-item {{ Request::is('/parent/dashboard') ? 'menu-open' : '' }}">
-                    <a href="{{ url('parent/dashboard')}}" class="nav-link {{ Request::is('admin/dashboard') ? 'active' : '' }}">
+                    <a href="{{ url('parent/dashboard')}}" class="nav-link {{ Request::is('parent/dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
