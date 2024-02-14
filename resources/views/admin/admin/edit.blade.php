@@ -33,6 +33,7 @@
                         <input type="text"
                         class="form-control"
                         name="name"
+                        value="{{ $getRecord->name }}"
                         placeholder="Enter name"
                         required>
                       </div>
@@ -40,23 +41,26 @@
                     <label>Email address</label>
                     <input type="email"
                     class="form-control"
+                    value="{{ $getRecord->email }}"
                     placeholder="Enter email"
                     name="email"
                     required>
                   </div>
                   <div class="form-group">
                     <label>Password</label>
-                    <input type="password"
+                    <input type="text"
                     class="form-control"
                     name="password"
                     placeholder="Password"
-                    required>
+                    >
+                    <p class="mt-2 text-info">Type the password above if you want to change it</p>
                   </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn
+                  btn-primary">Update</button>
                 </div>
               </form>
             </div>

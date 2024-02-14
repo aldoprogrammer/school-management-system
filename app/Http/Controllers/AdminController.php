@@ -45,4 +45,17 @@ class AdminController extends Controller
         }
 
     }
+
+    public function update(Request $request, $id)
+    {
+        $data['header_title'] = 'Edit Admin';
+        $user = User::getSingle($id);
+        $user->name = trim($request->name);
+        $user->email = trim($request->email);
+        if(!empty($request->password)) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+        return redirect('admin/admin/list')->with('success', 'Admin Updated Successfully');
+    }
 }
