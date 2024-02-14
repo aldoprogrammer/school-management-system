@@ -70,4 +70,4 @@
     <!-- /.content -->
   </div>
 
-<@endsection
+@endsection
