@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2024, Developed by <a href="https://github.com/aldoprogrammer">Aldo Lata Soba</a>.</strong>
+    <strong>Copyright &copy; {{ date('Y')}}, Developed by <a href="https://github.com/aldoprogrammer">Aldo Lata Soba</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.2.0
