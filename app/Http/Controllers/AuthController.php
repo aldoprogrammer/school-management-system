@@ -82,9 +82,42 @@ class AuthController extends Controller
         }
         else
         {
-            return redirect('/forgot-password')->with('error', 'Email Not Found');
+            return redirect(url('/forgot-password'))->with('error', 'Email Not Found');
         }
     }
+
+    public function reset($token)
+    {
+        $user = User::getTokenSingle($token);
+        if(!empty($user))
+        {
+            $data['user'] = $user;
+            return view('auth.reset', $data);
+        }
+        else
+        {
+            abort(404);
+        }
+    }
+
+
+    public function PostReset($token, Request $request)
+    {
+        $user = User::getTokenSingle($token);
+        if($user) {
+            if($request->password == $request->cpassword) {
+                $user->password = Hash::make($request->password);
+                $user->remember_token = Str::random(30);
+                $user->save();
+                return redirect(url(''))->with('success', 'Password Reset Successfully');
+            } else {
+                return redirect()->back()->with('error', 'Password Confirmation Does Not Match');
+            }
+        } else {
+            abort(404);
+        }
+    }
+
 
     public function logout()
     {
