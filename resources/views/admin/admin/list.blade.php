@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Admin List</h1>
+            <h1>Admin List (Total Admin: {{ $getRecord->total()}})</h1>
           </div>
           <div class="col-sm-6 text-right">
             <a href="{{ url('admin/admin/add') }}" class="btn btn-primary">
@@ -59,6 +59,9 @@
                     @endforeach
                  </tbody>
                 </table>
+                    <div class="float-right mt-4">
+                        {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
+                    </div>
               </div>
               <!-- /.card-body -->
             </div>

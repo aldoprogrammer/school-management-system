@@ -54,7 +54,7 @@ class User extends Authenticatable
                     ->where('user_type', '=', 1)
                     ->where('is_delete', '=', 0)
                     ->orderBy('id', 'desc')
-                    ->get();
+                    ->paginate(1);
     }
 
     static public function getEmailSingle($email)
