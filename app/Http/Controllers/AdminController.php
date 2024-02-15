@@ -23,6 +23,9 @@ class AdminController extends Controller
 
     public function insert(Request $request)
     {
+        request()->validate([
+            'email' => 'required|email|unique:users',
+        ]);
         $data['header_title'] = 'Add Admin';
         $user = new User;
         $user->name = trim($request->name);
@@ -48,6 +51,12 @@ class AdminController extends Controller
 
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'email' => 'required|email|unique:users,email,'.$id,
+        ],
+        [
+            'email.unique' => 'The new email that you trying to use is already registerd ',
+        ]);
         $data['header_title'] = 'Edit Admin';
         $user = User::getSingle($id);
         $user->name = trim($request->name);

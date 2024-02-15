@@ -33,7 +33,7 @@
                         <input type="text"
                         class="form-control"
                         name="name"
-                        value="{{ $getRecord->name }}"
+                        value="{{ old('name', $getRecord->name ) }}"
                         placeholder="Enter name"
                         required>
                       </div>
@@ -41,10 +41,11 @@
                     <label>Email address</label>
                     <input type="email"
                     class="form-control"
-                    value="{{ $getRecord->email }}"
+                    value="{{ old('email', $getRecord->email ) }}"
                     placeholder="Enter email"
                     name="email"
-                    required>
+                    >
+                    <span class="text-danger">{{ $errors->first('email') }}</span>
                   </div>
                   <div class="form-group">
                     <label>Password</label>

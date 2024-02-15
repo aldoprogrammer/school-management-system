@@ -43,6 +43,7 @@
                     placeholder="Enter email"
                     name="email"
                     required>
+                    <span class="text-danger">{{ $errors->first('email') }}</span>
                   </div>
                   <div class="form-group">
                     <label>Password</label>
