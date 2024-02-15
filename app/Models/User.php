@@ -62,8 +62,12 @@ class User extends Authenticatable
                     {
                         $return = $return->where('email', 'like', '%'.Request::get('email').'%');
                     }
+                    if(!empty(Request::get('date')))
+                    {
+                        $return = $return->whereDate('created_at',  "=" ,Request::get('date'));
+                    }
             $return =  $return->orderBy('id', 'desc')
-                    ->paginate(2);
+                    ->paginate(20);
             return $return;
     }
 

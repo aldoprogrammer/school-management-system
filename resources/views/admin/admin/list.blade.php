@@ -33,6 +33,14 @@
                       value="{{ Request::get('email') }}"
                       >
                     </div>
+                    <div class="form-group col-md-3">
+                        <label>Date</label>
+                        <input type="date"
+                        class="form-control"
+                        name="date"
+                        value="{{ Request::get('date') }}"
+                        >
+                      </div>
                     <div class="form-group col-md-3" style="margin-top: 30px">
                         <button class="btn btn-primary">
                             Search
@@ -96,7 +104,7 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->email }}</td>
-            <td>{{ $item->created_at }}</td>
+            <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
             <td>
                 <a href="{{ url('admin/admin/edit/'.$item->id) }}" class="btn btn-primary">Edit</a>
                 <a href="{{ url('admin/admin/delete/'.$item->id) }}" class="btn btn-danger">Delete</a>
