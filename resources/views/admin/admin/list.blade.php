@@ -5,9 +5,54 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
+
+              <!-- general form elements -->
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Search Data</h3>
+                </div>
+                <form action="" method="get">
+                  @csrf
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="form-group col-md-3">
+                          <label>Name</label>
+                          <input type="text"
+                          class="form-control"
+                          name="name"
+                          placeholder="Enter name"
+                          value="{{ Request::get('name') }}"
+                          >
+                        </div>
+                    <div class="form-group col-md-3">
+                      <label>Email address</label>
+                      <input type="text"
+                      class="form-control"
+                      placeholder="Enter email"
+                      name="email"
+                      value="{{ Request::get('email') }}"
+                      >
+                    </div>
+                    <div class="form-group col-md-3" style="margin-top: 30px">
+                        <button class="btn btn-primary">
+                            Search
+                        </button>
+                        <a href="{{ url('admin/admin/list') }}" class="btn btn-success">
+                            Reset
+                        </a>
+                    </div>
+                </div>
+                  </div>
+                  <!-- /.card-body -->
+
+
+                </form>
+              </div>
+
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Admin List (Total Admin: {{ $getRecord->total()}})</h1>
+            <h1>Admin List (Total Admin: {{ $getRecord ? $getRecord->total() : 0 }})</h1>
+
           </div>
           <div class="col-sm-6 text-right">
             <a href="{{ url('admin/admin/add') }}" class="btn btn-primary">
@@ -45,23 +90,29 @@
                     </tr>
                   </thead>
                  <tbody>
-                    @foreach ($getRecord as $item)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->email }}</td>
-                            <td>{{ $item->created_at }}</td>
-                            <td>
-                                <a href="{{ url('admin/admin/edit/'.$item->id) }}" class="btn btn-primary">Edit</a>
-                                <a href="{{ url('admin/admin/delete/'.$item->id) }}" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-                    @endforeach
+                    @if($getRecord)
+    @foreach ($getRecord as $item)
+        <tr>
+            <td>{{ $loop->iteration }}</td>
+            <td>{{ $item->name }}</td>
+            <td>{{ $item->email }}</td>
+            <td>{{ $item->created_at }}</td>
+            <td>
+                <a href="{{ url('admin/admin/edit/'.$item->id) }}" class="btn btn-primary">Edit</a>
+                <a href="{{ url('admin/admin/delete/'.$item->id) }}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    @endforeach
+@endif
+
                  </tbody>
                 </table>
-                    <div class="float-right mt-4">
-                        {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
-                    </div>
+                @if($getRecord)
+                <div class="float-right mt-4">
+                    {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
+                </div>
+            @endif
+
               </div>
               <!-- /.card-body -->
             </div>
