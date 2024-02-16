@@ -156,6 +156,15 @@
                 </a>
             </li>
 
+            <li class="nav-item {{ Request::is('admin/subject/list') ? 'menu-open' : '' }}">
+                <a href="{{ url('admin/subject/list')}}" class="nav-link {{ Request::is('admin/subject/list') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Subject
+                    </p>
+                </a>
+            </li>
+
 
                @elseif(Auth::user()->user_type == 2)
                <li class="nav-item {{ Request::is('/teacher/dashboard') ? 'menu-open' : '' }}">
