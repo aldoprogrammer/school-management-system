@@ -100,9 +100,33 @@
                   </thead>
                  <tbody>
 
+                    @foreach ($getRecord as $item)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>
+                                @if($item->status == 0)
+                                    Active
+                                @else
+                                    Inactive
+                                @endif
+                            </td>
+                            <td>{{ $item->created_by_name }}</td>
+                            <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
+                            <td>
+                                <a href="{{ url('admin/class/edit/'.$item->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ url('admin/class/delete/'.$item->id) }}" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    @endforeach
+
 
                  </tbody>
                 </table>
+
+                <div class="float-right mt-4">
+                    {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
+                </div>
 
 
               </div>

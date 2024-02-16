@@ -11,6 +11,7 @@ class ClassController extends Controller
 
     public function list()
     {
+        $data['getRecord'] = ClassModel::getRecord();
         $data['header_title'] = 'Class List';
         return view('admin.class.list', $data);
     }
@@ -30,5 +31,21 @@ class ClassController extends Controller
         $save->created_by = Auth::user()->id;
         $save->save();
         return redirect('/admin/class/list')->with('success', 'Class Added Successfully');
+    }
+
+
+    public function edit($id)
+    {
+        $data['getRecord'] = ClassModel::getSingle($id);
+        if(!empty($data['getRecord']))
+        {
+            $data['header_title'] = 'Edit Class';
+            return view('admin.class.edit', $data);
+        }
+        else
+        {
+            abort(404);
+        }
+
     }
 }
