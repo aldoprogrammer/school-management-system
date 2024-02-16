@@ -29,13 +29,22 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label>Class Name</label>
+                        <label>Subject Name</label>
                         <input type="text"
                         class="form-control"
                         name="name"
                         value="{{ $getRecord->name }}"
-                        placeholder="Class Name"
+                        placeholder="Subject Name"
                         required>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Subject Type</label>
+                        <select name="type" class="form-control">
+                            <option value="">Select Type</option>
+                            <option {{ ($getRecord->type == "Theory") ? 'selected' : ''}} value="Theory">Theory</option>
+                            <option {{ ($getRecord->type == "Practice") ? 'selected' : ''}} value="Practice">Practice</option>
+                        </select>
                       </div>
 
                       <div class="form-group">
