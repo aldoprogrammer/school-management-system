@@ -16,7 +16,7 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="form-group col-md-3">
-                          <label>Name</label>
+                          <label>Subject Name</label>
                           <input type="text"
                           class="form-control"
                           name="name"
@@ -24,6 +24,15 @@
                           value="{{ Request::get('name') }}"
                           >
                         </div>
+
+                        <div class="form-group">
+                            <label>Subject Type</label>
+                            <select name="type" class="form-control">
+                                <option value="">Select Type</option>
+                                <option {{ (Request::get('type') == "Theory") ? 'selected' : ''}} value="Theory">Theory</option>
+                                <option {{ (Request::get('type') == "Practice") ? 'selected' : ''}} value="Practice">Practice</option>
+                            </select>
+                          </div>
 
                     <div class="form-group col-md-3">
                         <label>Date</label>
@@ -37,7 +46,7 @@
                         <button class="btn btn-primary">
                             Search
                         </button>
-                        <a href="{{ url('admin/class/list') }}" class="btn btn-success">
+                        <a href="{{ url('admin/subject/list') }}" class="btn btn-success">
                             Reset
                         </a>
                     </div>

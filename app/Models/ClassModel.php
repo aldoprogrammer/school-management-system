@@ -29,7 +29,7 @@ class ClassModel extends Model
                     }
                     if(!empty(Request::get('date')))
                     {
-                        $return = $return->whereDate('created_at',  "=" ,Request::get('date'));
+                        $return = $return->whereDate('class.created_at',  "=" ,Request::get('date'));
                     }
                 $return = $return->where('class.is_delete', '=', 0 )
                     ->orderBy('class.id', 'desc')
