@@ -24,15 +24,7 @@
                           value="{{ Request::get('name') }}"
                           >
                         </div>
-                    <div class="form-group col-md-3">
-                      <label>Email address</label>
-                      <input type="text"
-                      class="form-control"
-                      placeholder="Enter email"
-                      name="email"
-                      value="{{ Request::get('email') }}"
-                      >
-                    </div>
+
                     <div class="form-group col-md-3">
                         <label>Date</label>
                         <input type="date"
@@ -45,7 +37,7 @@
                         <button class="btn btn-primary">
                             Search
                         </button>
-                        <a href="{{ url('admin/admin/list') }}" class="btn btn-success">
+                        <a href="{{ url('admin/class/list') }}" class="btn btn-success">
                             Reset
                         </a>
                     </div>

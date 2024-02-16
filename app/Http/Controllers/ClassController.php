@@ -48,4 +48,24 @@ class ClassController extends Controller
         }
 
     }
+
+
+    public function update(Request $request, $id)
+    {
+        $save = ClassModel::getSingle($id);
+        $save->name = $request->name;
+        $save->status = $request->status;
+        // $save->updated_by = Auth::user()->id;
+        $save->save();
+        return redirect('/admin/class/list')->with('success', 'Class Updated Successfully');
+    }
+
+
+    public function delete($id)
+    {
+        $save = ClassModel::getSingle($id);
+        $save->is_delete = 1;
+        $save->save();
+        return redirect('/admin/class/list')->with('success', 'Class Deleted Successfully');
+    }
 }
