@@ -174,6 +174,16 @@
                 </a>
             </li>
 
+            <li class="nav-item {{ Request::is('admin/change_password') ? 'menu-open' : '' }}">
+                <a href="{{ url('admin/change_password')}}" class="nav-link {{ Request::is('admin/change_password') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                       Change Password
+                    </p>
+                </a>
+            </li>
+
+                {{-- teacher menu --}}
 
                @elseif(Auth::user()->user_type == 2)
                <li class="nav-item {{ Request::is('/teacher/dashboard') ? 'menu-open' : '' }}">
@@ -185,6 +195,18 @@
                 </a>
             </li>
 
+            <li class="nav-item {{ Request::is('teacher/change_password') ? 'menu-open' : '' }}">
+                <a href="{{ url('teacher/change_password')}}" class="nav-link {{ Request::is('teacher/change_password') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                       Change Password
+                    </p>
+                </a>
+            </li>
+
+
+            {{-- student --}}
+
 
                @elseif(Auth::user()->user_type == 3)
                 <li class="nav-item {{ Request::is('student/dashboard') ? 'menu-open' : '' }}">
@@ -195,12 +217,32 @@
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item {{ Request::is('admin/change_password') ? 'menu-open' : '' }}">
+                    <a href="{{ url('student/change_password')}}" class="nav-link {{ Request::is('student/change_password') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                           Change Password
+                        </p>
+                    </a>
+                </li>
+
+                {{-- parent --}}
                @elseif(Auth::user()->user_type == 4)
                 <li class="nav-item {{ Request::is('/parent/dashboard') ? 'menu-open' : '' }}">
                     <a href="{{ url('parent/dashboard')}}" class="nav-link {{ Request::is('parent/dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ Request::is('parent/change_password') ? 'menu-open' : '' }}">
+                    <a href="{{ url('parent/change_password')}}" class="nav-link {{ Request::is('parent/change_password') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                           Change Password
                         </p>
                     </a>
                 </li>
