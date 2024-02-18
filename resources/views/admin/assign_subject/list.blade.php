@@ -16,14 +16,24 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="form-group col-md-3">
-                          <label>Name</label>
+                          <label>Class Name</label>
                           <input type="text"
                           class="form-control"
-                          name="name"
-                          placeholder="Enter name"
-                          value="{{ Request::get('name') }}"
+                          name="class_name"
+                          placeholder="Enter Class Name"
+                          value="{{ Request::get('class_name') }}"
                           >
                         </div>
+
+                        <div class="form-group col-md-3">
+                            <label>Subject Name</label>
+                            <input type="text"
+                            class="form-control"
+                            name="subject_name"
+                            placeholder="Enter Subject Name"
+                            value="{{ Request::get('subject_name') }}"
+                            >
+                          </div>
 
                     <div class="form-group col-md-3">
                         <label>Date</label>
@@ -37,7 +47,7 @@
                         <button class="btn btn-primary">
                             Search
                         </button>
-                        <a href="{{ url('admin/class/list') }}" class="btn btn-success">
+                        <a href="{{ url('admin/assign_subject/list') }}" class="btn btn-success">
                             Reset
                         </a>
                     </div>
@@ -83,7 +93,8 @@
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>Name</th>
+                      <th>Class Name</th>
+                      <th>Subject Name</th>
                       <th>Status</th>
                       <th>Created By</th>
                       <th>Created Date</th>
@@ -95,7 +106,8 @@
                     @foreach ($getRecord as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->class_name }}</td>
+                            <td>{{ $item->subject_name }}</td>
                             <td>
                                 @if($item->status == 0)
                                     Active
@@ -106,8 +118,8 @@
                             <td>{{ $item->created_by_name }}</td>
                             <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
                             <td>
-                                <a href="{{ url('admin/class/edit/'.$item->id) }}" class="btn btn-primary">Edit</a>
-                                <a href="{{ url('admin/class/delete/'.$item->id) }}" class="btn btn-danger">Delete</a>
+                                <a href="{{ url('admin/assign_subject/edit/'.$item->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ url('admin/assign_subject/delete/'.$item->id) }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach
@@ -116,9 +128,9 @@
                  </tbody>
                 </table>
 
-                {{-- <div class="float-right mt-4">
+                <div class="float-right mt-4">
                     {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
-                </div> --}}
+                </div>
 
 
               </div>
