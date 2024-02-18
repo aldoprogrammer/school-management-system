@@ -60,4 +60,32 @@ class ClassSubjectController extends Controller
         }
 
     }
+
+    public function edit($id)
+    {
+        $getRecord = ClassSubjectModel::getSingle($id);
+        if(!empty($getRecord))
+        {
+            $data['getRecord'] = $getRecord;
+            $data['getAssignSubjectID'] = ClassSubjectModel::getAssignSubjectID($getRecord->class_id);
+            $data['getClass'] = ClassModel::getClass();
+            $data['getSubject'] = SubjectModel::getSubject();
+            $data['header_title'] = 'Subject Assign Edit';
+            return view('admin.assign_subject.edit', $data);
+        }
+        else
+        {
+            abort(404);
+        }
+
+
+    }
+
+    public function delete($id)
+    {
+        $delete = ClassSubjectModel::getsingle($id);
+        $delete->is_delete = 1;
+        $delete->save();
+        return redirect('admin/assign_subject/list')->with('success', 'Subject delete successfully');
+    }
 }
