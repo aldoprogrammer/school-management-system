@@ -56,4 +56,9 @@ class ClassSubjectModel extends Model
     {
         return self::where('class_id', '=', $class_id)->where('subject_id', '=', $subject_id)->first();
     }
+
+    static public function deleteSubject($class_id)
+    {
+        return self::where('class_id', '=', $class_id)->delete();
+    }
 }

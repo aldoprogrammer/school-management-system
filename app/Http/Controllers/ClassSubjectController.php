@@ -78,7 +78,34 @@ class ClassSubjectController extends Controller
             abort(404);
         }
 
+    }
 
+    public function update(Request $request)
+    {
+     ClassSubjectModel::deleteSubject($request->class_id);
+     if(!empty($request->subject_id))
+     {
+         foreach($request->subject_id as $subject_id)
+         {
+             $countAlready = ClassSubjectModel::countAlready($request->class_id, $subject_id);
+             if(!empty($countAlready))
+             {
+                 $countAlready->status = $request->status;
+                 $countAlready->save();
+             }
+             else
+             {
+                 $save = new ClassSubjectModel;
+             $save->class_id = $request->class_id;
+             $save->subject_id = $subject_id;
+             $save->status = $request->status;
+             $save->created_by = Auth()->user()->id;
+             $save->save();
+             }
+
+         }
+         return redirect('admin/assign_subject/list')->with('success', 'Subject assign successfully');
+     }
     }
 
     public function delete($id)
