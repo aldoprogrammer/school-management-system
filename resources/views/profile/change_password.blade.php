@@ -30,16 +30,16 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Old Password</label>
-                        <input type="text"
+                        <input type="password"
                         class="form-control"
-                        name="password"
+                        name="old_password"
                         placeholder="Old Password"
                         required>
                       </div>
 
                       <div class="form-group">
                         <label>New Password</label>
-                        <input type="text"
+                        <input type="password"
                         class="form-control"
                         name="new_password"
                         placeholder="New Password"
