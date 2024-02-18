@@ -119,6 +119,7 @@
                             <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
                             <td>
                                 <a href="{{ url('admin/assign_subject/edit/'.$item->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ url('admin/assign_subject/edit_single/'.$item->id) }}" class="btn btn-primary">Edit Single</a>
                                 <a href="{{ url('admin/assign_subject/delete/'.$item->id) }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
