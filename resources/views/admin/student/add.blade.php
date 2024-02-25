@@ -81,12 +81,93 @@
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label">Date of Birth<span class="text-danger"></span></label>
+                            <label">Date of Birth<span class="text-danger">*</span></label>
                             <input type="date" value="{{ old('date_of_birth') }}"
                             class="form-control"
                             name="date_of_birth"
+                            required
                             placeholder="Date of Birth">
                         </div>
+
+                        <div class="form-group col-md-6">
+                            <label">Caste <span class="text-danger"></span></label>
+                            <input type="text"
+                            class="form-control"
+                            name="caste"
+                            value="{{ old('caste') }}"
+                            placeholder="Caste"
+                            >
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label">Religion <span class="text-danger"></span></label>
+                            <input type="text"
+                            class="form-control"
+                            name="religion"
+                            value="{{ old('religion') }}"
+                            placeholder="Religion"
+                            >
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label">Mobile Number<span class="text-danger"></span></label>
+                            <input type="text"
+                            class="form-control"
+                            name="mobile_number"
+                            value="{{ old('mobile_number') }}"
+                            placeholder="Mobile Number"
+                            >
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label">Admission Date <span class="text-danger">*</span></label>
+                            <input type="date"
+                            class="form-control"
+                            required
+                            name="admission_date"
+                            value="{{ old('admission_date') }}"
+                            placeholder="Admission Date"
+                            >
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label">Profile_Pic<span class="text-danger"></span></label>
+                            <input type="file"
+                            class="form-control"
+                            name="profile_pic"
+                            >
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label">Blood Group<span class="text-danger"></span></label>
+                            <input type="date"
+                            class="form-control"
+                            name="blood_group"
+                            value="{{ old('blood_group') }}"
+                            placeholder="Blood Group"
+                            >
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label">Height<span class="text-danger"></span></label>
+                            <input type="date"
+                            class="form-control"
+                            name="height"
+                            value="{{ old('height') }}"
+                            placeholder="Height"
+                            >
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label">Weight<span class="text-danger"></span></label>
+                            <input type="date"
+                            class="form-control"
+                            name="weight"
+                            value="{{ old('weight') }}"
+                            placeholder="Weight"
+                            >
+                        </div>
+
 
                     </div>
 
