@@ -69,10 +69,13 @@
                             <label">Class <span class="text-danger">*</span></label>
                             <select class="form-control" required name="class_id">
                                 <option value="">Select a Class</option>
+                                @foreach ($getClass as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label">Class <span class="text-danger">*</span></label>
+                            <label">Gender <span class="text-danger">*</span></label>
                             <select class="form-control" required name="gender">
                                 <option value="">Select a Gender</option>
                                 <option value="male">Male</option>
