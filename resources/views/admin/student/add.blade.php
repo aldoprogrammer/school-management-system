@@ -37,6 +37,7 @@
                             value="{{ old('name') }}"
                             placeholder="First name"
                             required>
+                            <span class="text-danger">{{ $errors->first('name') }}</span>
                         </div>
                         <div class="form-group col-md-6">
                             <label">Last Name <span class="text-danger">*</span></label>
@@ -46,6 +47,7 @@
                             value="{{ old('last_name') }}"
                             placeholder="Last name"
                             required>
+                            <span class="text-danger">{{ $errors->first('last_name') }}</span>
                           </div>
 
                           <div class="form-group col-md-6">
@@ -56,6 +58,7 @@
                             value="{{ old('admission_number') }}"
                             placeholder="Admission Number"
                             required>
+                            <span class="text-danger">{{ $errors->first('admission_number') }}</span>
                         </div>
                         <div class="form-group col-md-6">
                             <label">Roll Number<span class="text-danger"></span></label>
@@ -63,6 +66,7 @@
                             class="form-control"
                             name="roll_number"
                             placeholder="Roll Number">
+                            <span class="text-danger">{{ $errors->first('roll_number') }}</span>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -70,17 +74,19 @@
                             <select class="form-control" required name="class_id">
                                 <option value="">Select a Class</option>
                                 @foreach ($getClass as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    <option {{ old('class_id') == $item->id ? 'selected' : ''}} value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
                             </select>
+                            <span class="text-danger">{{ $errors->first('class_id') }}</span>
                         </div>
                         <div class="form-group col-md-6">
                             <label">Gender <span class="text-danger">*</span></label>
                             <select class="form-control" required name="gender">
                                 <option value="">Select a Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                                <option {{ old('gender') == 'male' ? 'selected' : ''}} value="male">Male</option>
+                                <option {{ old('gender') == 'female' ? 'selected' : ''}} value="female">Female</option>
                             </select>
+                            <span class="text-danger">{{ $errors->first('gender') }}</span>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -90,6 +96,7 @@
                             name="date_of_birth"
                             required
                             placeholder="Date of Birth">
+                            <span class="text-danger">{{ $errors->first('date_of_birth') }}</span>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -100,6 +107,7 @@
                             value="{{ old('caste') }}"
                             placeholder="Caste"
                             >
+                            <span class="text-danger">{{ $errors->first('caste') }}</span>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -110,6 +118,7 @@
                             value="{{ old('religion') }}"
                             placeholder="Religion"
                             >
+                            <span class="text-danger">{{ $errors->first('religion') }}</span>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -120,6 +129,7 @@
                             value="{{ old('mobile_number') }}"
                             placeholder="Mobile Number"
                             >
+                            <span class="text-danger">{{ $errors->first('mobile_number') }}</span>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -131,6 +141,7 @@
                             value="{{ old('admission_date') }}"
                             placeholder="Admission Date"
                             >
+                            <span class="text-danger">{{ $errors->first('admission_date') }}</span>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -139,6 +150,7 @@
                             class="form-control"
                             name="profile_pic"
                             >
+                            <span class="text-danger">{{ $errors->first('profile_pic') }}</span>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -149,6 +161,7 @@
                             value="{{ old('blood_group') }}"
                             placeholder="Blood Group"
                             >
+                            <span class="text-danger">{{ $errors->first('blood_group') }}</span>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -159,6 +172,7 @@
                             value="{{ old('height') }}"
                             placeholder="Height"
                             >
+                            <span class="text-danger">{{ $errors->first('height') }}</span>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -169,15 +183,17 @@
                             value="{{ old('weight') }}"
                             placeholder="Weight"
                             >
+                            <span class="text-danger">{{ $errors->first('weight') }}</span>
                         </div>
 
                         <div class="form-group col-md-6">
                             <label">Status <span class="text-danger">*</span></label>
                             <select class="form-control" required name="status">
                                 <option value="">Select a Status</option>
-                                <option value="0">Active</option>
-                                <option value="1">Inactive</option>
+                                <option {{ old('status') == 0 ? 'selected' : ''}} value="0">Active</option>
+                                <option {{ old('status') == 1 ? 'selected' : ''}}  value="1">Inactive</option>
                             </select>
+                            <span class="text-danger">{{ $errors->first('status') }}</span>
                         </div>
                     </div>
                     <hr>

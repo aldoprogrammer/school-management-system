@@ -25,6 +25,26 @@ class StudentController extends Controller
 
     public function insert(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required',
+            'last_name' => 'required',
+            'admission_number' => 'required',
+            'roll_number' => 'required',
+            'gender' => 'required',
+            'date_of_birth' => 'required',
+            'class_id' => 'required',
+            'caste' => 'required',
+            'religion' => 'required',
+            'mobile_number' => 'required',
+            'profile_pic' => 'required',
+            'blood_group' => 'required',
+            'height' => 'required',
+            'weight' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
         $student = new User;
         $student->name = trim($request->name);
         $student->last_name = trim($request->last_name);
