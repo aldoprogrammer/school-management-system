@@ -14,4 +14,10 @@ class StudentController extends Controller
         return view('admin.student.list', $data);
     }
 
+    public function add()
+    {
+        $data['header_title'] = 'Add Student';
+        return view('admin.student.add', $data);
+    }
+
 }
