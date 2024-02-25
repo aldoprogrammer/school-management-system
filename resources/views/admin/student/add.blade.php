@@ -140,7 +140,7 @@
 
                         <div class="form-group col-md-6">
                             <label">Blood Group<span class="text-danger"></span></label>
-                            <input type="date"
+                            <input type="text"
                             class="form-control"
                             name="blood_group"
                             value="{{ old('blood_group') }}"
@@ -150,7 +150,7 @@
 
                         <div class="form-group col-md-6">
                             <label">Height<span class="text-danger"></span></label>
-                            <input type="date"
+                            <input type="text"
                             class="form-control"
                             name="height"
                             value="{{ old('height') }}"
@@ -160,7 +160,7 @@
 
                         <div class="form-group col-md-6">
                             <label">Weight<span class="text-danger"></span></label>
-                            <input type="date"
+                            <input type="text"
                             class="form-control"
                             name="weight"
                             value="{{ old('weight') }}"
@@ -168,16 +168,18 @@
                             >
                         </div>
 
-
+                        <div class="form-group col-md-6">
+                            <label">Status <span class="text-danger">*</span></label>
+                            <select class="form-control" required name="status">
+                                <option value="">Select a Status</option>
+                                <option value="0">Active</option>
+                                <option value="1">Inactive</option>
+                            </select>
+                        </div>
                     </div>
-
-
-
-
-
-
+                    <hr>
                   <div class="form-group">
-                    <label>Email address</label>
+                    <label>Email address<span class="text-danger">*</span></label>
                     <input type="email"
                     class="form-control"
                     placeholder="Enter email"
@@ -186,7 +188,7 @@
                     <span class="text-danger">{{ $errors->first('email') }}</span>
                   </div>
                   <div class="form-group">
-                    <label>Password</label>
+                    <label>Password<span class="text-danger">*</span></label>
                     <input type="password"
                     class="form-control"
                     name="password"
