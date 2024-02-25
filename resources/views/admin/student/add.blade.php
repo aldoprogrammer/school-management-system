@@ -25,7 +25,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="" method="POST">
+              <form action="" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="row">

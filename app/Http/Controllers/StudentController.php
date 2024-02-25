@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ClassModel;
 use App\Models\User;
 use Illuminate\Http\Request;
-use PhpParser\Builder\Class_;
+use Illuminate\Support\Str;
 
 class StudentController extends Controller
 {
@@ -38,13 +38,26 @@ class StudentController extends Controller
         $student->caste = trim($request->caste);
         $student->religion = trim($request->religion);
         $student->mobile_number = trim($request->mobile_number);
-        $student->admission_date = trim($request->admission_date);
-        $student->profile_pic = trim($request->profile_pic);
+
+        if(!empty($request->admission_date)){
+            $student->admission_date = trim($request->admission_date);
+        }
+
+        if(!empty($request->file('profile_pic')))
+        {
+            $file = $request->file('profile_pic');
+            $extension = $file->getClientOriginalExtension();
+            $randomStr = date('Ymdhis').Str::random(20);
+            $filename = strtolower($randomStr).'.'.$extension;
+            $file->move('upload/profile/', $filename);
+            $student->profile_pic = $filename;
+        }
         $student->blood_group = trim($request->blood_group);
         $student->height = trim($request->height);
         $student->weight = trim($request->weight);
         $student->email = trim($request->email);
         $student->password = trim($request->password);
+        $student->user_type = 3;
         $student->save();
 
         return redirect('admin/student/list')->with('success', 'Student Added Successfully');
