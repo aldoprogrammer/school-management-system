@@ -27,22 +27,15 @@ class StudentController extends Controller
     {
 
         $request->validate([
-            'name' => 'required',
-            'last_name' => 'required',
-            'admission_number' => 'required',
-            'roll_number' => 'required',
-            'gender' => 'required',
-            'date_of_birth' => 'required',
-            'class_id' => 'required',
-            'caste' => 'required',
-            'religion' => 'required',
-            'mobile_number' => 'required',
-            'profile_pic' => 'required',
-            'blood_group' => 'required',
-            'height' => 'required',
-            'weight' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+            'admission_number' => 'max:50',
+            'roll_number' => 'max:50',
+            'caste' => 'max:50',
+            'religion' => 'max:50',
+            'mobile_number' => 'max:15|min:7',
+            'blood_group' => 'max:10',
+            'height' => 'max:10',
+            'weight' => 'max:10',
+            'email' => 'required|email|unique:users',
         ]);
 
         $student = new User;
