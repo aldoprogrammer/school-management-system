@@ -56,10 +56,10 @@
 
 
               <div class="form-group col-md-2">
-                <label>Mobile Number</label>
+                <label>Phone</label>
                 <input type="text"
                 class="form-control"
-                placeholder="Mobile Number"
+                placeholder="Phone"
                 name="mobile_number"
                 value="{{ Request::get('mobile_number') }}"
                 >
@@ -184,7 +184,7 @@
         </td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->gender }}</td>
-            <td>{{ $item->phone }}</td>
+            <td>{{ $item->mobile_number }}</td>
             <td>{{ $item->occupation }}</td>
             <td>
                 @if($item->status == 0)
