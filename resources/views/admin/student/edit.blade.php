@@ -36,7 +36,7 @@
                             name="name"
                             value="{{ old('name', $getRecord->name) }}"
                             placeholder="First name"
-                            required>
+                            >
                             <span class="text-danger">{{ $errors->first('name') }}</span>
                         </div>
                         <div class="form-group col-md-6">
@@ -44,9 +44,9 @@
                             <input type="text"
                             class="form-control"
                             name="last_name"
-                            value="{{ old('last_name') }}"
+                            value="{{ old('last_name', $getRecord->last_name) }}"
                             placeholder="Last name"
-                            required>
+                            >
                             <span class="text-danger">{{ $errors->first('last_name') }}</span>
                           </div>
 
@@ -55,14 +55,14 @@
                             <input type="text"
                             class="form-control"
                             name="admission_number"
-                            value="{{ old('admission_number') }}"
+                            value="{{ old('admission_number', $getRecord->admission_number) }}"
                             placeholder="Admission Number"
-                            required>
+                            >
                             <span class="text-danger">{{ $errors->first('admission_number') }}</span>
                         </div>
                         <div class="form-group col-md-6">
                             <label">Roll Number<span class="text-danger"></span></label>
-                            <input type="text" value="{{ old('roll_number') }}"
+                            <input type="text" value="{{ old('roll_number', $getRecord->roll_number) }}"
                             class="form-control"
                             name="roll_number"
                             placeholder="Roll Number">
@@ -71,30 +71,33 @@
 
                         <div class="form-group col-md-6">
                             <label">Class <span class="text-danger">*</span></label>
-                            <select class="form-control" required name="class_id">
+                            <select class="form-control"  name="class_id">
                                 <option value="">Select a Class</option>
                                 @foreach ($getClass as $item)
-                                    <option {{ old('class_id') == $item->id ? 'selected' : ''}} value="{{ $item->id }}">{{ $item->name }}</option>
+                                    <option {{ old('class_id',
+                                    $getRecord->class_id) == $item->id ?
+                                    'selected' : ''}} value="{{ $item->id }}">
+                                    {{ $item->name }}</option>
                                 @endforeach
                             </select>
                             <span class="text-danger">{{ $errors->first('class_id') }}</span>
                         </div>
                         <div class="form-group col-md-6">
                             <label">Gender <span class="text-danger">*</span></label>
-                            <select class="form-control" required name="gender">
+                            <select class="form-control"  name="gender">
                                 <option value="">Select a Gender</option>
-                                <option {{ old('gender') == 'male' ? 'selected' : ''}} value="male">Male</option>
-                                <option {{ old('gender') == 'female' ? 'selected' : ''}} value="female">Female</option>
+                                <option {{ old('gender', $getRecord->gender) == 'male' ? 'selected' : ''}} value="male">Male</option>
+                                <option {{ old('gender', $getRecord->gender) == 'female' ? 'selected' : ''}} value="female">Female</option>
                             </select>
                             <span class="text-danger">{{ $errors->first('gender') }}</span>
                         </div>
 
                         <div class="form-group col-md-6">
                             <label">Date of Birth<span class="text-danger">*</span></label>
-                            <input type="date" value="{{ old('date_of_birth') }}"
+                            <input type="date" value="{{ old('date_of_birth', $getRecord->date_of_birth) }}"
                             class="form-control"
                             name="date_of_birth"
-                            required
+
                             placeholder="Date of Birth">
                             <span class="text-danger">{{ $errors->first('date_of_birth') }}</span>
                         </div>
@@ -104,7 +107,7 @@
                             <input type="text"
                             class="form-control"
                             name="caste"
-                            value="{{ old('caste') }}"
+                            value="{{ old('caste', $getRecord->caste) }}"
                             placeholder="Caste"
                             >
                             <span class="text-danger">{{ $errors->first('caste') }}</span>
@@ -115,7 +118,7 @@
                             <input type="text"
                             class="form-control"
                             name="religion"
-                            value="{{ old('religion') }}"
+                            value="{{ old('religion', $getRecord->religion) }}"
                             placeholder="Religion"
                             >
                             <span class="text-danger">{{ $errors->first('religion') }}</span>
@@ -126,7 +129,7 @@
                             <input type="text"
                             class="form-control"
                             name="mobile_number"
-                            value="{{ old('mobile_number') }}"
+                            value="{{ old('mobile_number', $getRecord->mobile_number) }}"
                             placeholder="Mobile Number"
                             >
                             <span class="text-danger">{{ $errors->first('mobile_number') }}</span>
@@ -136,9 +139,9 @@
                             <label">Admission Date <span class="text-danger">*</span></label>
                             <input type="date"
                             class="form-control"
-                            required
+
                             name="admission_date"
-                            value="{{ old('admission_date') }}"
+                            value="{{ old('admission_date', $getRecord->admission_date) }}"
                             placeholder="Admission Date"
                             >
                             <span class="text-danger">{{ $errors->first('admission_date') }}</span>
@@ -158,7 +161,7 @@
                             <input type="text"
                             class="form-control"
                             name="blood_group"
-                            value="{{ old('blood_group') }}"
+                            value="{{ old('blood_group', $getRecord->blood_group) }}"
                             placeholder="Blood Group"
                             >
                             <span class="text-danger">{{ $errors->first('blood_group') }}</span>
@@ -169,7 +172,7 @@
                             <input type="text"
                             class="form-control"
                             name="height"
-                            value="{{ old('height') }}"
+                            value="{{ old('height', $getRecord->height) }}"
                             placeholder="Height"
                             >
                             <span class="text-danger">{{ $errors->first('height') }}</span>
@@ -180,7 +183,7 @@
                             <input type="text"
                             class="form-control"
                             name="weight"
-                            value="{{ old('weight') }}"
+                            value="{{ old('weight', $getRecord->weight) }}"
                             placeholder="Weight"
                             >
                             <span class="text-danger">{{ $errors->first('weight') }}</span>
@@ -188,10 +191,10 @@
 
                         <div class="form-group col-md-6">
                             <label">Status <span class="text-danger">*</span></label>
-                            <select class="form-control" required name="status">
+                            <select class="form-control"  name="status">
                                 <option value="">Select a Status</option>
-                                <option {{ old('status') == 0 ? 'selected' : ''}} value="0">Active</option>
-                                <option {{ old('status') == 1 ? 'selected' : ''}}  value="1">Inactive</option>
+                                <option {{ old('status', $getRecord->status) == 0 ? 'selected' : ''}} value="0">Active</option>
+                                <option {{ old('status', $getRecord->status) == 1 ? 'selected' : ''}}  value="1">Inactive</option>
                             </select>
                             <span class="text-danger">{{ $errors->first('status') }}</span>
                         </div>
@@ -203,16 +206,17 @@
                     class="form-control"
                     placeholder="Enter email"
                     name="email"
-                    required>
+                    value="{{ old('email', $getRecord->email) }}"
+                    >
                     <span class="text-danger">{{ $errors->first('email') }}</span>
                   </div>
                   <div class="form-group">
                     <label>Password<span class="text-danger">*</span></label>
-                    <input type="password"
+                    <input type="text"
                     class="form-control"
                     name="password"
                     placeholder="Password"
-                    required>
+                    >
                   </div>
                 </div>
                 <!-- /.card-body -->
