@@ -6,6 +6,143 @@
     <section class="content-header">
       <div class="container-fluid">
 
+          <!-- general form elements -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Search Data</h3>
+            </div>
+            <form action="" method="get">
+              @csrf
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-md-2">
+                      <label>Name</label>
+                      <input type="text"
+                      class="form-control"
+                      name="name"
+                      placeholder="Enter name"
+                      value="{{ Request::get('name') }}"
+                      >
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>Last Name</label>
+                        <input type="text"
+                        class="form-control"
+                        name="last_name"
+                        placeholder="Last Name"
+                        value="{{ Request::get('last_name') }}"
+                        >
+                      </div>
+                <div class="form-group col-md-2">
+                  <label>Email address</label>
+                  <input type="text"
+                  class="form-control"
+                  placeholder="Enter email"
+                  name="email"
+                  value="{{ Request::get('email') }}"
+                  >
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Admission Number</label>
+                    <input type="text"
+                    class="form-control"
+                    placeholder="Admission Number"
+                    name="admission_number"
+                    value="{{ Request::get('admission_number') }}"
+                    >
+                  </div>
+
+                <div class="form-group col-md-2">
+                    <label>Roll Number</label>
+                    <input type="text"
+                    class="form-control"
+                    placeholder="Roll Number"
+                    name="roll_number"
+                    value="{{ Request::get('roll_number') }}"
+                    >
+                  </div>
+
+                <div class="form-group col-md-2">
+                    <label>Class</label>
+                    <input type="text"
+                    class="form-control"
+                    placeholder="Class"
+                    name="class"
+                    value="{{ Request::get('class') }}"
+                    >
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label>Gender</label>
+                    <select name="gender" id=""
+                    class="form-control">
+                    <option value="">Select a Gender</option>
+                            <option {{ Request::get('gender') == 'male' ? 'selected' : ''}} value="male">Male</option>
+                            <option {{ Request::get('gender') == 'female' ? 'selected' : ''}} value="male">Female</option>
+                        </select>
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label>Caste</label>
+                    <input type="text"
+                    class="form-control"
+                    placeholder="Caste"
+                    name="caste"
+                    value="{{ Request::get('caste') }}"
+                    >
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label>Religion</label>
+                    <input type="text"
+                    class="form-control"
+                    placeholder="Religion"
+                    name="religion"
+                    value="{{ Request::get('religion') }}"
+                    >
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label>Mobile Number</label>
+                    <input type="text"
+                    class="form-control"
+                    placeholder="Mobile Number"
+                    name="mobile_number"
+                    value="{{ Request::get('mobile_number') }}"
+                    >
+                  </div>
+
+
+
+
+
+
+
+                <div class="form-group col-md-2">
+                    <label>Date</label>
+                    <input type="date"
+                    class="form-control"
+                    name="date"
+                    value="{{ Request::get('date') }}"
+                    >
+                  </div>
+                <div class="form-group col-md-3" style="margin-top: 30px">
+                    <button class="btn btn-primary">
+                        Search
+                    </button>
+                    <a href="{{ url('admin/admin/list') }}" class="btn btn-success">
+                        Reset
+                    </a>
+                </div>
+            </div>
+              </div>
+              <!-- /.card-body -->
+
+
+            </form>
+          </div>
+
+
 
         <div class="row mb-2">
           <div class="col-sm-6">
