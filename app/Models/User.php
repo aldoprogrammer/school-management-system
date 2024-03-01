@@ -73,7 +73,8 @@ class User extends Authenticatable
 
     static public function getStudent()
     {
-        $return = self::select('users.*')
+        $return = self::select('users.*', 'class.name as class_name')
+                    ->join('class', 'users.class_id', '=', 'class.id', 'left')
                     ->where('users.user_type', '=', 3)
                     ->where('users.is_delete', '=', 0);
             $return =  $return->orderBy('users.id', 'desc')
