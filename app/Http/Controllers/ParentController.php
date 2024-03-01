@@ -59,4 +59,19 @@ class ParentController extends Controller
         return redirect('admin/parent/list')->with('success', 'Parent Added Successfully');
 
     }
+
+    public function edit($id)
+    {
+        $data['getRecord'] = User::getSingle($id);
+        if(!empty($data['$getRecord']))
+        {
+            $data['header_title'] = 'Edit Parent';
+            return view('admin.parent.edit', $data);
+        }
+        else
+        {
+            abort(404);
+        }
+
+    }
 }
