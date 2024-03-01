@@ -14,4 +14,10 @@ class ParentController extends Controller
 
         return view('admin.parent.list', $data);
     }
+
+    public function add()
+    {
+        $data['header_title'] = 'Add Parent';
+        return view('admin.parent.add', $data);
+    }
 }

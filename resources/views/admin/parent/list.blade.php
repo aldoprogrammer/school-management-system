@@ -117,7 +117,13 @@
             <td>{{ $item->gender }}</td>
             <td>{{ $item->phone }}</td>
             <td>{{ $item->occupation }}</td>
-            <td>{{ $item->status }}</td>
+            <td>
+                @if($item->status == 0)
+                    Active
+                @else
+                    Inactive
+                @endif
+            </td>
             <td>{{ $item->address }}</td>
             <td>{{ $item->email }}</td>
             <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
