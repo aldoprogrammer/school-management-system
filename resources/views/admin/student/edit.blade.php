@@ -154,6 +154,10 @@
                             name="profile_pic"
                             >
                             <span class="text-danger">{{ $errors->first('profile_pic') }}</span>
+                            @if (!empty($getRecord->getProfile()))
+                            <img src="{{ $getRecord->getProfile()}}"
+                            alt="" style="width: 100px; heigth: 100px">
+                        @endif
                         </div>
 
                         <div class="form-group col-md-6">

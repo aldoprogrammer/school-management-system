@@ -112,6 +112,7 @@ class StudentController extends Controller
         if(!empty($request->date_of_birth)){
             $student->class_id = trim($request->date_of_birth);
         }
+
         $student->class_id = trim($request->class_id);
         $student->caste = trim($request->caste);
         $student->religion = trim($request->religion);
@@ -126,6 +127,11 @@ class StudentController extends Controller
 
         if(!empty($request->file('profile_pic')))
         {
+            if(!empty($student->getProfile()))
+            {
+                unlink('upload/profile/'.$student->profile_pic);
+            }
+
             $file = $request->file('profile_pic');
             $extension = $file->getClientOriginalExtension();
             $randomStr = date('Ymdhis').Str::random(20);
