@@ -86,7 +86,7 @@
                 <h3 class="card-title">Parents List</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body p-0">
+              <div class="card-body p-0" style="overflow: auto">
                 <table class="table table-striped">
                   <thead>
                     <tr>
@@ -127,9 +127,9 @@
             <td>{{ $item->address }}</td>
             <td>{{ $item->email }}</td>
             <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
-            <td>
-                <a href="{{ url('admin/parent/edit/'.$item->id) }}" class="btn btn-primary">Edit</a>
-                <a href="{{ url('admin/parent/delete/'.$item->id) }}" class="btn btn-danger">Delete</a>
+            <td style="min-width: 150px">
+                <a href="{{ url('admin/parent/edit/'.$item->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                <a href="{{ url('admin/parent/delete/'.$item->id) }}" class="btn btn-danger btn-sm">Delete</a>
             </td>
         </tr>
     @endforeach
