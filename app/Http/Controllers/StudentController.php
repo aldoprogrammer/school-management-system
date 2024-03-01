@@ -152,4 +152,19 @@ class StudentController extends Controller
 
     }
 
+    public function delete($id)
+    {
+        $getRecord = User::getSingle($id);
+        if(!empty($getRecord))
+        {
+            $getRecord->is_delete = 1;
+            $getRecord->save();
+            return redirect('admin/student/list')->with('success', 'Student Deleted Successfully');
+        }
+        else
+        {
+            abort(404);
+        }
+    }
+
 }
