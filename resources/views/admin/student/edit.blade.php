@@ -217,12 +217,16 @@
                     name="password"
                     placeholder="Password"
                     >
+                    <p>Do you want to change password?</p>
                   </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit"
+                  class="btn btn-primary">
+                  Update
+                </button>
                 </div>
               </form>
             </div>
