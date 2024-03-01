@@ -6,48 +6,117 @@
     <section class="content-header">
       <div class="container-fluid">
 
-              <!-- general form elements -->
-              <div class="card card-primary">
-                <div class="card-header">
-                  <h3 class="card-title">Search Data</h3>
+    <!-- general form elements -->
+    <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Search Data</h3>
+        </div>
+        <form action="" method="get">
+          @csrf
+          <div class="card-body">
+            <div class="row">
+              <div class="form-group col-md-2">
+                  <label>Name</label>
+                  <input type="text"
+                  class="form-control"
+                  name="name"
+                  placeholder="Enter name"
+                  value="{{ Request::get('name') }}"
+                  >
                 </div>
-                <form action="" method="get">
-                  @csrf
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="form-group col-md-3">
-                          <label>Name</label>
-                          <input type="text"
-                          class="form-control"
-                          name="name"
-                          placeholder="Enter name"
-                          value="{{ Request::get('name') }}"
-                          >
-                        </div>
-                    <div class="form-group col-md-3">
-                      <label>Email address</label>
-                      <input type="text"
-                      class="form-control"
-                      placeholder="Enter email"
-                      name="email"
-                      value="{{ Request::get('email') }}"
-                      >
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Date</label>
-                        <input type="date"
-                        class="form-control"
-                        name="date"
-                        value="{{ Request::get('date') }}"
-                        >
-                      </div>
-                    <div class="form-group col-md-3" style="margin-top: 30px">
-                        <button class="btn btn-primary">
-                            Search
-                        </button>
-                        <a href="{{ url('admin/parent/list') }}" class="btn btn-success">
-                            Reset
-                        </a>
+                <div class="form-group col-md-2">
+                    <label>Last Name</label>
+                    <input type="text"
+                    class="form-control"
+                    name="last_name"
+                    placeholder="Last Name"
+                    value="{{ Request::get('last_name') }}"
+                    >
+                  </div>
+            <div class="form-group col-md-2">
+              <label>Email address</label>
+              <input type="text"
+              class="form-control"
+              placeholder="Enter email"
+              name="email"
+              value="{{ Request::get('email') }}"
+              >
+            </div>
+
+
+              <div class="form-group col-md-2">
+                <label>Gender</label>
+                <select name="gender" id=""
+                class="form-control">
+                <option value="">Select a Gender</option>
+                        <option {{ Request::get('gender') == 'male' ? 'selected' : ''}} value="male">Male</option>
+                        <option {{ Request::get('gender') == 'female' ? 'selected' : ''}} value="female">Female</option>
+                    </select>
+              </div>
+
+
+              <div class="form-group col-md-2">
+                <label>Mobile Number</label>
+                <input type="text"
+                class="form-control"
+                placeholder="Mobile Number"
+                name="mobile_number"
+                value="{{ Request::get('mobile_number') }}"
+                >
+              </div>
+
+
+            <div class="form-group col-md-2">
+                <label>Created Date</label>
+                <input type="date"
+                class="form-control"
+                name="date"
+                value="{{ Request::get('date') }}"
+                >
+              </div>
+
+              <div class="form-group col-md-2">
+                <label>Occupation</label>
+                <input type="text"
+                class="form-control"
+                placeholder="Occupation"
+                name="occupation"
+                value="{{ Request::get('occupation') }}"
+                >
+              </div>
+
+              <div class="form-group col-md-2">
+                <label>Address</label>
+                <input type="text"
+                class="form-control"
+                placeholder="Address"
+                name="address"
+                value="{{ Request::get('address') }}"
+                >
+              </div>
+
+
+
+
+              <div class="form-group col-md-2">
+                <label>Status</label>
+                <select name="status" id=""
+                class="form-control">
+                <option value="">Select a Status</option>
+                        <option {{ Request::get('status') == 100 ? 'selected' : ''}} value="100">Active</option>
+                        <option {{ Request::get('status') == 1 ? 'selected' : ''}} value="1">Inactive</option>
+                    </select>
+              </div>
+
+
+
+            <div class="form-group col-md-3" style="margin-top: 30px">
+                <button class="btn btn-primary">
+                    Search
+                </button>
+                <a href="{{ url('admin/parent/list') }}" class="btn btn-success">
+                    Reset
+                </a>
                     </div>
                 </div>
                   </div>
