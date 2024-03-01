@@ -159,7 +159,7 @@
                     <button class="btn btn-primary">
                         Search
                     </button>
-                    <a href="{{ url('admin/admin/list') }}" class="btn btn-success">
+                    <a href="{{ url('admin/student/list') }}" class="btn btn-success">
                         Reset
                     </a>
                 </div>
