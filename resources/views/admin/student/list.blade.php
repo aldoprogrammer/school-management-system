@@ -41,7 +41,22 @@
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
+                      <th>Profile</th>
                       <th>Name</th>
+                      <th>Last Name</th>
+                      <th>Class</th>
+                      <th>Admission Number</th>
+                      <th>Roll Number</th>
+                      <th>Mobile Number</th>
+                      <th>Admission Date</th>
+                      <th>Birth Date</th>
+                      <th>Religion</th>
+                      <th>Caste</th>
+                      <th>Blood Group</th>
+                      <th>Height</th>
+                      <th>Weight</th>
+                      <th>Gender</th>
+                      <th>Status</th>
                       <th>Email</th>
                       <th>Created Date</th>
                       <th>Action</th>
@@ -52,7 +67,32 @@
     @foreach ($getRecord as $item)
         <tr>
             <td>{{ $loop->iteration }}</td>
+            <td>@if (!empty($item->getProfile()))
+                    <img src="{{ $item->getProfile() }}"
+                    alt="" srcset="" style="height: 50px; width: 50px">
+                @endif
+            </td>
             <td>{{ $item->name }}</td>
+            <td>{{ $item->last_name }}</td>
+            <td>{{ $item->class_name }}</td>
+            <td>{{ $item->admission_number }}</td>
+            <td>{{ $item->roll_number }}</td>
+            <td>{{ $item->mobile_number }}</td>
+            <td>{{ date('d-m-Y', strtotime($item->admission_date))}}</td>
+            <td>{{ date('d-m-Y', strtotime($item->birth_date))}}</td>
+            <td>{{ $item->religion }}</td>
+            <td>{{ $item->caste }}</td>
+            <td>{{ $item->blood_group }}</td>
+            <td>{{ $item->height }}</td>
+            <td>{{ $item->weight }}</td>
+            <td>{{ $item->gender }}</td>
+            <td>
+                @if($item->status == 0)
+                    Active
+                @else
+                    Inactive
+                @endif
+            </td>
             <td>{{ $item->email }}</td>
             <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
             <td>
