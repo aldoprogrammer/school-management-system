@@ -125,6 +125,7 @@
                   class="form-control"
                   placeholder="Enter email"
                   name="email"
+                  value="{{ old('email', $getRecord->email) }}"
                   >
                   <span class="text-danger">{{ $errors->first('email', $getRecord->email) }}</span><span class="text-danger">{{ $errors->first('email') }}</span>
                 </div>

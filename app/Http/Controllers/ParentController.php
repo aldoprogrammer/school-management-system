@@ -90,9 +90,6 @@ class ParentController extends Controller
         $student->gender = trim($request->gender);
         $student->address = trim($request->address);
         $student->occupation = trim($request->occupation);
-        if(!empty($request->date_of_birth)){
-            $student->class_id = trim($request->date_of_birth);
-        }
         $student->mobile_number = trim($request->mobile_number);
         if(!empty($request->file('profile_pic')))
         {
