@@ -63,7 +63,7 @@ class ParentController extends Controller
     public function edit($id)
     {
         $data['getRecord'] = User::getSingle($id);
-        if(!empty($data['$getRecord']))
+        if(!empty($data['getRecord']))
         {
             $data['header_title'] = 'Edit Parent';
             return view('admin.parent.edit', $data);

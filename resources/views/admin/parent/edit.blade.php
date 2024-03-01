@@ -33,9 +33,9 @@
                           <input type="text"
                           class="form-control"
                           name="name"
-                          value="{{ old('name') }}"
+                          value="{{ old('name', $getRecord->name) }}"
                           placeholder="First name"
-                          required>
+                          >
                           <span class="text-danger">{{ $errors->first('name') }}</span>
                       </div>
                       <div class="form-group col-md-6">
@@ -43,18 +43,18 @@
                           <input type="text"
                           class="form-control"
                           name="last_name"
-                          value="{{ old('last_name') }}"
+                          value="{{ old('last_name', $getRecord->last_name) }}"
                           placeholder="Last name"
-                          required>
+                          >
                           <span class="text-danger">{{ $errors->first('last_name') }}</span>
                         </div>
 
                         <div class="form-group col-md-6">
                           <label">Gender <span class="text-danger">*</span></label>
-                          <select class="form-control" required name="gender">
+                          <select class="form-control"  name="gender">
                               <option value="">Select a Gender</option>
-                              <option {{ old('gender') == 'male' ? 'selected' : ''}} value="male">Male</option>
-                              <option {{ old('gender') == 'female' ? 'selected' : ''}} value="female">Female</option>
+                              <option {{ old('gender', $getRecord->gender) == 'male' ? 'selected' : ''}} value="male">Male</option>
+                              <option {{ old('gender', $getRecord->gender) == 'female' ? 'selected' : ''}} value="female">Female</option>
                           </select>
                           <span class="text-danger">{{ $errors->first('gender') }}</span>
                       </div>
@@ -64,7 +64,7 @@
                           <input type="text"
                           class="form-control"
                           name="occupation"
-                          value="{{ old('occupation') }}"
+                          value="{{ old('occupation', $getRecord->occupation) }}"
                           placeholder="Occupation"
                           >
                           <span class="text-danger">{{ $errors->first('occupation') }}</span>
@@ -75,9 +75,9 @@
                           <input type="text"
                           class="form-control"
                           name="mobile_number"
-                          value="{{ old('mobile_number') }}"
+                          value="{{ old('mobile_number', $getRecord->mobile_number) }}"
                           placeholder="Mobile Number"
-                          required
+
                           >
                           <span class="text-danger">{{ $errors->first('mobile_number') }}</span>
                       </div>
@@ -87,9 +87,9 @@
                           <input type="text"
                           class="form-control"
                           name="address"
-                          value="{{ old('address') }}"
+                          value="{{ old('address', $getRecord->address) }}"
                           placeholder="Address"
-                          required
+
                           >
                           <span class="text-danger">{{ $errors->first('address') }}</span>
                       </div>
@@ -101,15 +101,19 @@
                           name="profile_pic"
                           >
                           <span class="text-danger">{{ $errors->first('profile_pic') }}</span>
+                          @if (!empty($getRecord->getProfile()))
+                          <img src="{{ $getRecord->getProfile()}}"
+                          alt="" style="width: 100px; heigth: 100px">
+                        @endif
                       </div>
 
 
                       <div class="form-group col-md-6">
                           <label">Status <span class="text-danger">*</span></label>
-                          <select class="form-control" required name="status">
+                          <select class="form-control"  name="status">
                               <option value="">Select a Status</option>
-                              <option {{ old('status') == 0 ? 'selected' : ''}} value="0">Active</option>
-                              <option {{ old('status') == 1 ? 'selected' : ''}}  value="1">Inactive</option>
+                              <option {{ old('status', $getRecord->status) == 0 ? 'selected' : ''}} value="0">Active</option>
+                              <option {{ old('status', $getRecord->status) == 1 ? 'selected' : ''}}  value="1">Inactive</option>
                           </select>
                           <span class="text-danger">{{ $errors->first('status') }}</span>
                       </div>
@@ -121,8 +125,8 @@
                   class="form-control"
                   placeholder="Enter email"
                   name="email"
-                  required>
-                  <span class="text-danger">{{ $errors->first('email') }}</span>
+                  >
+                  <span class="text-danger">{{ $errors->first('email', $getRecord->email) }}</span><span class="text-danger">{{ $errors->first('email') }}</span>
                 </div>
                 <div class="form-group">
                   <label>Password<span class="text-danger">*</span></label>
@@ -130,7 +134,8 @@
                   class="form-control"
                   name="password"
                   placeholder="Password"
-                  required>
+                  >
+                  <p>If you want to change password, just type it here!</p>
                 </div>
               </div>
               <!-- /.card-body -->
