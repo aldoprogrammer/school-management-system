@@ -113,19 +113,48 @@
                   </div>
 
 
-
-
-
+                <div class="form-group col-md-2">
+                    <label>Admission Date</label>
+                    <input type="date"
+                    class="form-control"
+                    name="admission_date"
+                    value="{{ Request::get('admission_date') }}"
+                    >
+                  </div>
 
 
                 <div class="form-group col-md-2">
-                    <label>Date</label>
+                    <label>Created Date</label>
                     <input type="date"
                     class="form-control"
                     name="date"
                     value="{{ Request::get('date') }}"
                     >
                   </div>
+
+                  <div class="form-group col-md-2">
+                    <label>Blood Group</label>
+                    <input type="text"
+                    class="form-control"
+                    placeholder="Blood Group"
+                    name="blood_group"
+                    value="{{ Request::get('blood_group') }}"
+                    >
+                  </div>
+
+
+                  <div class="form-group col-md-2">
+                    <label>Status</label>
+                    <select name="status" id=""
+                    class="form-control">
+                    <option value="">Select a Status</option>
+                            <option {{ Request::get('status') == 100 ? 'selected' : ''}} value="100">Active</option>
+                            <option {{ Request::get('status') == 1 ? 'selected' : ''}} value="1">Inactive</option>
+                        </select>
+                  </div>
+
+
+
                 <div class="form-group col-md-3" style="margin-top: 30px">
                     <button class="btn btn-primary">
                         Search
