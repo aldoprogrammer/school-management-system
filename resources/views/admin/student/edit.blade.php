@@ -216,6 +216,7 @@
                     class="form-control"
                     name="password"
                     placeholder="Password"
+
                     >
                     <p>Do you want to change password?</p>
                   </div>

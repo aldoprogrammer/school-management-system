@@ -96,7 +96,7 @@ class StudentController extends Controller
             'roll_number' => 'max:50',
             'caste' => 'max:50',
             'religion' => 'max:50',
-            'mobile_number' => 'max:15|min:7',
+            'mobile_number' => 'max:15|nullable|min:7',
             'blood_group' => 'max:10',
             'height' => 'max:10',
             'weight' => 'max:10',
@@ -115,7 +115,10 @@ class StudentController extends Controller
         $student->class_id = trim($request->class_id);
         $student->caste = trim($request->caste);
         $student->religion = trim($request->religion);
-        $student->mobile_number = trim($request->mobile_number);
+        if(!empty($request->mobile_number)){
+            $student->mobile_number = trim($request->mobile_number);
+        }
+
 
         if(!empty($request->admission_date)){
             $student->admission_date = trim($request->admission_date);
