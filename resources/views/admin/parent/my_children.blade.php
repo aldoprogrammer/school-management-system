@@ -77,7 +77,7 @@
 
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Parents Students List (Total Parents: {{ $getRecord ? $getRecord->total() : 0 }})</h1>
+            {{-- <h1>Parents Students List (Total Parents: {{ $getRecord ? $getRecord->total() : 0 }})</h1> --}}
 
           </div>
           <div class="col-sm-6 text-right">
@@ -101,7 +101,7 @@
             <div class="card">
 
               <div class="card-header">
-                <h3 class="card-title">Parents Students List</h3>
+                <h3 class="card-title">Students List</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0" style="overflow: auto">
@@ -111,48 +111,13 @@
                       <th style="width: 10px">#</th>
                       <th>Profile Picture</th>
                       <th>Name</th>
-                      <th>Gender</th>
-                      <th>Phone</th>
-                      <th>Occupation</th>
-                      <th>Status</th>
-                      <th>Address</th>
                       <th>Email</th>
                       <th>Created Date</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                  <tbody>
-                    @if($getRecord)
-    @foreach ($getRecord as $item)
-        <tr>
-            <td>{{ $loop->iteration }}</td>
-            <td>@if (!empty($item->getProfile()))
-                <img src="{{ $item->getProfile() }}"
-                alt="" srcset="" style="height: 50px; width: 50px">
-            @endif
-        </td>
-            <td>{{ $item->name }}</td>
-            <td>{{ $item->gender }}</td>
-            <td>{{ $item->mobile_number }}</td>
-            <td>{{ $item->occupation }}</td>
-            <td>
-                @if($item->status == 0)
-                    Active
-                @else
-                    Inactive
-                @endif
-            </td>
-            <td>{{ $item->address }}</td>
-            <td>{{ $item->email }}</td>
-            <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
-            <td style="min-width: 150px">
-                <a href="{{ url('admin/parent/edit/'.$item->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                <a href="{{ url('admin/parent/delete/'.$item->id) }}" class="btn btn-danger btn-sm">Delete</a>
-                <a href="{{ url('admin/parent/my-children/'.$item->id) }}" class="btn btn-success btn-sm mt-1">My Children</a>
-            </td>
-        </tr>
-    @endforeach
-@endif
+
 
                  </tbody>
                 </table>
@@ -165,6 +130,45 @@
               </div>
               <!-- /.card-body -->
             </div>
+
+
+            <div class="card">
+
+                <div class="card-header">
+                  <h3 class="card-title">Parents List</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0" style="overflow: auto">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th style="width: 10px">#</th>
+                        <th>Profile Picture</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Phone</th>
+                        <th>Occupation</th>
+                        <th>Status</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Created Date</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                   <tbody>
+
+
+                   </tbody>
+                  </table>
+                  @if($getRecord)
+                  <div class="float-right mt-4">
+                      {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
+                  </div>
+              @endif
+
+                </div>
+                <!-- /.card-body -->
+              </div>
             <!-- /.card -->
           </div>
           <!-- /.col -->
