@@ -199,6 +199,7 @@
             <td style="min-width: 150px">
                 <a href="{{ url('admin/parent/edit/'.$item->id) }}" class="btn btn-primary btn-sm">Edit</a>
                 <a href="{{ url('admin/parent/delete/'.$item->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                <a href="{{ url('admin/parent/my-children/'.$item->id) }}" class="btn btn-success btn-sm mt-1">My Children</a>
             </td>
         </tr>
     @endforeach
