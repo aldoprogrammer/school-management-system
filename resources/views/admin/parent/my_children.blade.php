@@ -98,8 +98,10 @@
             @include('_message')
             <!-- /.card -->
 
-            <div class="card">
+            @if (!empty($getSearchStudent))
 
+
+            <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Students List</h3>
               </div>
@@ -121,16 +123,12 @@
 
                  </tbody>
                 </table>
-                @if($getRecord)
-                <div class="float-right mt-4">
-                    {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
-                </div>
-            @endif
+
 
               </div>
               <!-- /.card-body -->
             </div>
-
+            @endif
 
             <div class="card">
 
@@ -160,11 +158,7 @@
 
                    </tbody>
                   </table>
-                  @if($getRecord)
-                  <div class="float-right mt-4">
-                      {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
-                  </div>
-              @endif
+
 
                 </div>
                 <!-- /.card-body -->
