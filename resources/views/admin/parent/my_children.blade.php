@@ -112,8 +112,9 @@
                     <tr>
                       <th style="width: 10px">#</th>
                       <th>Profile Picture</th>
-                      <th>Name</th>
+                      <th>Student Name</th>
                       <th>Email</th>
+                      <th>Parent Name</th>
                       <th>Created Date</th>
                       <th>Action</th>
                     </tr>
@@ -130,6 +131,7 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->last_name }}</td>
                             <td>{{ $item->email }}</td>
+                            <td>{{ $item->parent_name }}</td>
                             <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
                             <td>
                                 <a href="{{ url('admin/parent/assign_student_parent/'.$item->id.'/'.$parent_id) }}" class="btn btn-primary">
@@ -157,27 +159,44 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body p-0" style="overflow: auto">
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th style="width: 10px">#</th>
-                        <th>Profile Picture</th>
-                        <th>Name</th>
-                        <th>Gender</th>
-                        <th>Phone</th>
-                        <th>Occupation</th>
-                        <th>Status</th>
-                        <th>Address</th>
-                        <th>Email</th>
-                        <th>Created Date</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                   <tbody>
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th style="width: 10px">#</th>
+                            <th>Profile Picture</th>
+                            <th>Student Name</th>
+                            <th>Email</th>
+                            <th>Parent Name</th>
+                            <th>Created Date</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                       <tbody>
+                          @if($getRecord)
+                          @foreach ($getRecord as $item)
+                              <tr>
+                                  <td>@if (!empty($item->getProfile()))
+                                          <img src="{{ $item->getProfile() }}"
+                                          alt="" srcset="" style="height: 50px; width: 50px">
+                                      @endif
+                                  </td>
+                                  <td>{{ $item->name }}</td>
+                                  <td>{{ $item->last_name }}</td>
+                                  <td>{{ $item->email }}</td>
+                                  <td>{{ $item->parent_name }}</td>
+                                  <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
+                                  <td>
+                                      <a href="{{ url('admin/parent/assign_student_parent_delete/'.$item->id) }}" class="btn btn-danger">
+                                          Delete
+                                      </a>
 
+                                  </td>
+                              </tr>
+                          @endforeach
+                      @endif
 
-                   </tbody>
-                  </table>
+                       </tbody>
+                      </table>
 
 
                 </div>
