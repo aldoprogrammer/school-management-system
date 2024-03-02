@@ -9,7 +9,7 @@
     <!-- general form elements -->
     <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Search Data</h3>
+          <h3 class="card-title">Search Student to Assigns</h3>
         </div>
         <form action="" method="get">
           @csrf
@@ -75,17 +75,6 @@
                 </form>
               </div>
 
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            {{-- <h1>Parents Students List (Total Parents: {{ $getRecord ? $getRecord->total() : 0 }})</h1> --}}
-
-          </div>
-          <div class="col-sm-6 text-right">
-            <a href="{{ url('admin/parent/add') }}" class="btn btn-primary">
-                Add New Parents
-            </a>
-          </div>
-        </div>
       </div><!-- /.container-fluid -->
     </section>
 
@@ -115,7 +104,6 @@
                       <th>Student Name</th>
                       <th>Email</th>
                       <th>Parent Name</th>
-                      <th>Created Date</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -123,17 +111,17 @@
                     @if($getSearchStudent)
                     @foreach ($getSearchStudent as $item)
                         <tr>
+
+                            <td>{{ $item->id }}</td>
                             <td>@if (!empty($item->getProfile()))
                                     <img src="{{ $item->getProfile() }}"
                                     alt="" srcset="" style="height: 50px; width: 50px">
                                 @endif
                             </td>
                             <td>{{ $item->name }}</td>
-                            <td>{{ $item->last_name }}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->parent_name }}</td>
                             <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
-                            <td>
                                 <a href="{{ url('admin/parent/assign_student_parent/'.$item->id.'/'.$parent_id) }}" class="btn btn-primary">
                                     Add Student to Parent
                                 </a>
@@ -175,13 +163,13 @@
                           @if($getRecord)
                           @foreach ($getRecord as $item)
                               <tr>
+                                <td>{{ $item->id }}</td>
                                   <td>@if (!empty($item->getProfile()))
                                           <img src="{{ $item->getProfile() }}"
                                           alt="" srcset="" style="height: 50px; width: 50px">
                                       @endif
                                   </td>
                                   <td>{{ $item->name }}</td>
-                                  <td>{{ $item->last_name }}</td>
                                   <td>{{ $item->email }}</td>
                                   <td>{{ $item->parent_name }}</td>
                                   <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
