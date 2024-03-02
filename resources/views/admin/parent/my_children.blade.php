@@ -6,6 +6,11 @@
     <section class="content-header">
       <div class="container-fluid">
 
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Parent Name: ({{ $getParent->name }} {{ $getParent->last_name }})  </h1>
+          </div>
+        </div>
     <!-- general form elements -->
     <div class="card card-primary">
         <div class="card-header">
