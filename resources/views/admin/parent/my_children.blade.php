@@ -15,6 +15,16 @@
           @csrf
           <div class="card-body">
             <div class="row">
+                <div class="form-group col-md-2">
+                    <label>Student ID</label>
+                    <input type="text"
+                    class="form-control"
+                    name="id"
+                    placeholder="Student ID"
+                    value="{{ Request::get('id') }}"
+                    >
+                  </div>
+
               <div class="form-group col-md-2">
                   <label>Name</label>
                   <input type="text"
@@ -24,6 +34,8 @@
                   value="{{ Request::get('name') }}"
                   >
                 </div>
+
+
                 <div class="form-group col-md-2">
                     <label>Last Name</label>
                     <input type="text"
@@ -44,69 +56,6 @@
             </div>
 
 
-              <div class="form-group col-md-2">
-                <label>Gender</label>
-                <select name="gender" id=""
-                class="form-control">
-                <option value="">Select a Gender</option>
-                        <option {{ Request::get('gender') == 'male' ? 'selected' : ''}} value="male">Male</option>
-                        <option {{ Request::get('gender') == 'female' ? 'selected' : ''}} value="female">Female</option>
-                    </select>
-              </div>
-
-
-              <div class="form-group col-md-2">
-                <label>Phone</label>
-                <input type="text"
-                class="form-control"
-                placeholder="Phone"
-                name="mobile_number"
-                value="{{ Request::get('mobile_number') }}"
-                >
-              </div>
-
-
-            <div class="form-group col-md-2">
-                <label>Created Date</label>
-                <input type="date"
-                class="form-control"
-                name="date"
-                value="{{ Request::get('date') }}"
-                >
-              </div>
-
-              <div class="form-group col-md-2">
-                <label>Occupation</label>
-                <input type="text"
-                class="form-control"
-                placeholder="Occupation"
-                name="occupation"
-                value="{{ Request::get('occupation') }}"
-                >
-              </div>
-
-              <div class="form-group col-md-2">
-                <label>Address</label>
-                <input type="text"
-                class="form-control"
-                placeholder="Address"
-                name="address"
-                value="{{ Request::get('address') }}"
-                >
-              </div>
-
-
-
-
-              <div class="form-group col-md-2">
-                <label>Status</label>
-                <select name="status" id=""
-                class="form-control">
-                <option value="">Select a Status</option>
-                        <option {{ Request::get('status') == 100 ? 'selected' : ''}} value="100">Active</option>
-                        <option {{ Request::get('status') == 1 ? 'selected' : ''}} value="1">Inactive</option>
-                    </select>
-              </div>
 
 
 
@@ -114,7 +63,7 @@
                 <button class="btn btn-primary">
                     Search
                 </button>
-                <a href="{{ url('admin/parent/list') }}" class="btn btn-success">
+                <a href="{{ url('admin/parent/my-children/'. $parent_id) }}" class="btn btn-success">
                     Reset
                 </a>
                     </div>

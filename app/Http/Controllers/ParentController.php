@@ -132,8 +132,9 @@ class ParentController extends Controller
         }
     }
 
-    public function  myChildren()
+    public function  myChildren($id)
     {
+        $data['parent_id'] = $id;
         $data['getRecord'] = User::getParent();
         $data['header_title'] = 'My Children';
         return view('admin.parent.my_children', $data);
