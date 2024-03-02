@@ -208,8 +208,8 @@
                     <tr>
                       <th style="width: 10px">#</th>
                       <th>Profile</th>
-                      <th>Name</th>
-                      <th>Last Name</th>
+                      <th>Student Name</th>
+                      <th>Parent Name</th>
                       <th>Class</th>
                       <th>Admission Number</th>
                       <th>Roll Number</th>
@@ -239,7 +239,7 @@
                 @endif
             </td>
             <td>{{ $item->name }}</td>
-            <td>{{ $item->last_name }}</td>
+            <td>{{ $item->parent_name }}</td>
             <td>{{ $item->class_name }}</td>
             <td>{{ $item->admission_number }}</td>
             <td>{{ $item->roll_number }}</td>

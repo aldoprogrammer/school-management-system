@@ -8,7 +8,7 @@
 
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Parent Name: ({{ $getParent->name }} {{ $getParent->last_name }})  </h1>
+            <h1 class="mb-2">Parent Name: ({{ $getParent->name }} {{ $getParent->last_name }})  </h1>
           </div>
         </div>
     <!-- general form elements -->
@@ -126,12 +126,12 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->parent_name }}</td>
-                            <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
+                            <td>
                                 <a href="{{ url('admin/parent/assign_student_parent/'.$item->id.'/'.$parent_id) }}" class="btn btn-primary">
-                                    Add Student to Parent
+                                    Add Student to This Parent
                                 </a>
-
                             </td>
+
                         </tr>
                     @endforeach
                 @endif
