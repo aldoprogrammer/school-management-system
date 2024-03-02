@@ -119,7 +119,27 @@
                     </tr>
                   </thead>
                  <tbody>
+                    @if($getSearchStudent)
+                    @foreach ($getSearchStudent as $item)
+                        <tr>
+                            <td>@if (!empty($item->getProfile()))
+                                    <img src="{{ $item->getProfile() }}"
+                                    alt="" srcset="" style="height: 50px; width: 50px">
+                                @endif
+                            </td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->last_name }}</td>
+                            <td>{{ $item->email }}</td>
+                            <td>{{ date('d-m-Y h:i A', strtotime($item->created_at))}}</td>
+                            <td>
+                                <a href="{{ url('admin/parent/assign_student_parent/'.$item->id.'/'.$parent_id) }}" class="btn btn-primary">
+                                    Add Student to Parent
+                                </a>
 
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
 
                  </tbody>
                 </table>

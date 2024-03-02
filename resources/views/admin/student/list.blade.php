@@ -232,7 +232,7 @@
                     @if($getRecord)
     @foreach ($getRecord as $item)
         <tr>
-            <td>{{ $loop->iteration }}</td>
+            <td>{{ $item->id }}</td>
             <td>@if (!empty($item->getProfile()))
                     <img src="{{ $item->getProfile() }}"
                     alt="" srcset="" style="height: 50px; width: 50px">
