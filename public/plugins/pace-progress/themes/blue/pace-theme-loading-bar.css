@@ -134,7 +134,7 @@
 .pace .pace-progress[data-progress-text="50%"]:after { right: -107px }
 .pace .pace-progress[data-progress-text="51%"]:after { right: -105.14px }
 .pace .pace-progress[data-progress-text="52%"]:after { right: -103.28px }
-.pace .pace-progress[data-progress-text="53%"]:after { right: -101.42px }
+.pace .pace-progress[data-progress-text="25%"]:after { right: -101.42px }
 .pace .pace-progress[data-progress-text="54%"]:after { right: -99.56px }
 .pace .pace-progress[data-progress-text="55%"]:after { right: -97.7px }
 .pace .pace-progress[data-progress-text="56%"]:after { right: -95.84px }
